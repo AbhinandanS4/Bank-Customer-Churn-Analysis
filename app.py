@@ -15,11 +15,11 @@ country = st.sidebar.selectbox("Choose a country", ["France", "Germany", "Spain"
 # Load the appropriate dataset
 @st.cache_data
 def load_data():
-    france = pd.read_csv("france_df.csv")
+    france = pd.read_csv("Data/france_df.csv")
     france.drop(columns=['Unnamed: 0','RowNumber'],inplace=True)
-    germany = pd.read_csv("germany_df.csv")
+    germany = pd.read_csv("Data/germany_df.csv")
     germany.drop(columns=['Unnamed: 0','RowNumber'],inplace=True)
-    spain = pd.read_csv("spain_df.csv")
+    spain = pd.read_csv("Data/spain_df.csv")
     spain.drop(columns=['Unnamed: 0','RowNumber'],inplace=True)
     return {"France": france, "Germany": germany, "Spain": spain}
 
