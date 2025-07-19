@@ -69,7 +69,7 @@ if 'Age' in df.columns:
 # Plot 4: Churn by Credit Score (Optional)
 if 'CreditScore' in df.columns:
     fig4 = px.histogram(df, x='CreditScore', color='Exited',
-                        title="Credit Score Distribution by Churn", template="plotly_white")
+                        title="Credit Score Distribution by Churn", template="plotly_white", barmode='group')
     st.plotly_chart(fig4, use_container_width=True)
 # Section: Age Group vs Estimated Salary (Box Plot)
 if 'AgeGroup' in df.columns and 'EstimatedSalary' in df.columns:
@@ -98,7 +98,7 @@ st.plotly_chart(fig7, use_container_width=True)
 if 'Tenure' in df.columns:
     st.markdown("### Churn by Tenure")
     fig8 = px.histogram(df, x='Tenure', color='Exited',
-                        title="Churn Distribution by Customer Tenure")
+                        title="Churn Distribution by Customer Tenure", template="plotly_white", barmode='group')
     st.plotly_chart(fig8, use_container_width=True)
 # Plot: Churn by Credit Score Category
 if 'CreditScoreCategory' in df.columns:
