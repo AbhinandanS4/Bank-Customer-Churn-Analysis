@@ -50,13 +50,14 @@ fig1 = px.histogram(df, x='Exited', color='Exited',
                     title="Churn Distribution",
                     labels={'Exited': 'Churned (1) vs Not Churned (0)'},
                     barmode='group',
-                    nbins=1)
+                    nbins=1,
+                   template="plotly_white")
 st.plotly_chart(fig1, use_container_width=True)
 
 # Plot 2: Churn by Gender
 if 'Gender' in df.columns:
     fig2 = px.histogram(df, x='Gender', color='Exited', barmode='group',
-                        title="Churn by Gender")
+                        title="Churn by Gender", template="plotly_white")
     st.plotly_chart(fig2, use_container_width=True)
 
 # Plot 3: Churn by Age
@@ -68,7 +69,7 @@ if 'Age' in df.columns:
 # Plot 4: Churn by Credit Score (Optional)
 if 'CreditScore' in df.columns:
     fig4 = px.histogram(df, x='CreditScore', color='Exited',
-                        title="Credit Score Distribution by Churn")
+                        title="Credit Score Distribution by Churn", template="plotly_white")
     st.plotly_chart(fig4, use_container_width=True)
 # Section: Age Group vs Estimated Salary (Box Plot)
 if 'AgeGroup' in df.columns and 'EstimatedSalary' in df.columns:
@@ -110,7 +111,8 @@ if 'CreditScoreCategory' in df.columns:
         barmode='group',
         title='Churn Distribution Across Credit Score Categories',
         labels={'Exited': 'Churn Status', 'Credit Score Category': 'Credit Score Category'},
-        category_orders={'Credit Score Category': sorted(df['CreditScoreCategory'].unique())}
+        category_orders={'Credit Score Category': sorted(df['CreditScoreCategory'].unique())},
+        template="plotly_white"
     )
     fig9.update_layout(xaxis_title="Credit Score Category", yaxis_title="Number of Customers")
     st.plotly_chart(fig9, use_container_width=True)
